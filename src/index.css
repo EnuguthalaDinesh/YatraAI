@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* YatraAI Design System - Ocean-inspired travel theme */
+
+@layer base {
+  :root {
+    /* Ocean-inspired color palette */
+    --background: 210 50% 98%;
+    --foreground: 220 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 15%;
+
+    /* Primary - Deep ocean blue */
+    --primary: 200 85% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Soft sky blue */
+    --secondary: 200 40% 94%;
+    --secondary-foreground: 200 85% 35%;
+
+    /* Muted - Calm sea gray */
+    --muted: 210 25% 93%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Accent - Coral/Sunset orange */
+    --accent: 25 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 25% 88%;
+    --input: 210 25% 88%;
+    --ring: 200 85% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(200 85% 45%) 0%, hsl(220 75% 55%) 100%);
+    --gradient-sunset: linear-gradient(135deg, hsl(25 95% 55%) 0%, hsl(350 85% 55%) 100%);
+    --gradient-sky: linear-gradient(180deg, hsl(200 85% 45%) 0%, hsl(200 60% 70%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px hsl(220 30% 15% / 0.05);
+    --shadow-md: 0 4px 12px hsl(220 30% 15% / 0.08);
+    --shadow-lg: 0 10px 30px hsl(220 30% 15% / 0.12);
+    --shadow-glow: 0 0 20px hsl(200 85% 45% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 200 85% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 40% 94%;
+    --sidebar-accent-foreground: 200 85% 35%;
+    --sidebar-border: 210 25% 88%;
+    --sidebar-ring: 200 85% 45%;
+  }
+
+  .dark {
+    --background: 220 30% 8%;
+    --foreground: 210 40% 96%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 200 85% 55%;
+    --primary-foreground: 220 30% 8%;
+
+    --secondary: 220 25% 18%;
+    --secondary-foreground: 200 70% 70%;
+
+    --muted: 220 25% 18%;
+    --muted-foreground: 215 20% 60%;
+
+    --accent: 25 95% 60%;
+    --accent-foreground: 220 30% 8%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 25% 20%;
+    --input: 220 25% 20%;
+    --ring: 200 85% 55%;
+
+    --sidebar-background: 220 25% 10%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 200 85% 55%;
+    --sidebar-primary-foreground: 220 30% 8%;
+    --sidebar-accent: 220 25% 18%;
+    --sidebar-accent-foreground: 200 70% 70%;
+    --sidebar-border: 220 25% 20%;
+    --sidebar-ring: 200 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer utilities {
+  .gradient-ocean {
+    background: var(--gradient-ocean);
+  }
+
+  .gradient-sunset {
+    background: var(--gradient-sunset);
+  }
+
+  .gradient-sky {
+    background: var(--gradient-sky);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .text-gradient-ocean {
+    background: var(--gradient-ocean);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass {
+    @apply bg-card/80 backdrop-blur-md border border-border/50;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+/* Leaflet map styles */
+.leaflet-container {
+  font-family: inherit;
+  z-index: 0;
+}
+
+.leaflet-popup-content-wrapper {
+  @apply rounded-lg shadow-lg border border-border;
+}
+
+.leaflet-popup-content {
+  margin: 0;
+}
